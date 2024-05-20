@@ -37,7 +37,7 @@ export * from "./components/vertical-stepper/step";
 /**
  * Export constants.
  */
-export * from "./constants/app-constants";
+export { AppConstants } from "./constants/app-constants";
 export * from "./constants/ui-constants";
 export * from "./constants/organization-constants";
 export * from "./constants/multitenant-constants";

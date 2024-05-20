@@ -22,3 +22,4 @@ export { default as OrganizationRolesEdit } from "./pages/organization-roles-edi
 export { default as OrganizationRolesPage } from "./pages/organization-roles";
 export { default as OrganizationProvider } from "./providers/organizations-provider";
 export { default as useOrganizationSwitch } from "./hooks/use-organization-switch";
+export { useGetCurrentOrganizationType } from "./hooks/use-get-organization-type";

@@ -12,7 +12,9 @@
     "copy:themes:features": "node scripts/copy-themes-to-features.js",
     "clean:themes:features": "pnpm rimraf ./themes",
     "test": "jest --passWithNoTests",
-    "test:watch": "pnpm run test --watchAll"  },
+    "test:watch": "pnpm run test --watchAll" ,
+    "publish": "node scripts/publish-all.js"
+   },
   "author": "",
   "license": "ISC"
 }

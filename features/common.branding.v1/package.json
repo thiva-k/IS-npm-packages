@@ -5,8 +5,8 @@
     "description": "WSO2 Identity Server Console",
     "author": "WSO2",
     "license": "Apache-2.0",
-    "main": "index.js",
-    
+    "main": "dist/esm/public-api.js",   
+    "types":"dist/esm/index.d.ts", 
     "dependencies": {
         "@emotion/react": "^11.11.0",
         "@emotion/styled": "^11.11.0",
@@ -20,8 +20,6 @@
         "@thiva/admin.core.v1": "^2.19.2",
         "@thiva/admin.organizations.v1": "^2.19.2",
         "lodash-es": "^4.17.21",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
         "react-helmet": "^5.2.1"
     },
     "devDependencies": {       
@@ -29,6 +27,10 @@
         "@types/react": "^18.0.18",
         "@types/react-redux": "^7.1.25",
         "typescript": "^4.6.4"
+    },
+    "peerDependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
     },
     "browserslist": [
         "> 0.2%"

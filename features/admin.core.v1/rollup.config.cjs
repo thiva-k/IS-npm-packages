@@ -37,7 +37,7 @@ const onwarn = (warning, warn) => {
 module.exports = [
     {
         cache: false,
-        external: [ "react", "react-dom", /^@thiva\// ],
+        external: [ "react", "react-dom" ],
         input: [
             "./public-api.ts"
         ],
