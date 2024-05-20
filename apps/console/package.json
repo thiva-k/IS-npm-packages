@@ -51,7 +51,6 @@
         "@thiva/access-control": "^3.0.6",
         "@thiva/core": "^2.0.46",
         "@thiva/dynamic-forms": "^2.0.61",
-        "@thiva/features": "^2.20.0",
         "@thiva/form": "^2.0.62",
         "@thiva/forms": "^2.0.36",
         "@thiva/i18n": "^2.3.2",

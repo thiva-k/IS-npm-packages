@@ -48,7 +48,6 @@
         "@thiva/admin.oidc-scopes.v1": "^2.19.2",
         "@thiva/admin.wsfed-configuration.v1": "^2.19.2",
         "@thiva/admin.api-resources.v2": "^2.19.2",
-        "react-router-dom": "^4.3.1",
         "classnames": "^2.2.6",
         "axios": "^0.19.2",
         "codemirror": "^5.52.0",
