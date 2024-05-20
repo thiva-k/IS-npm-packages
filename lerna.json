@@ -1,0 +1,8 @@
+{
+    "packages": [
+        "apps/*",
+        "identity-apps-core",
+        "modules/*"
+    ],
+    "version": "2.0.0"
+}

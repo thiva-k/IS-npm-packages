@@ -1,0 +1,2007 @@
+/*!
+ * Copyright (c) 2019-2023, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ *
+ */
+
+ @type    : "app";
+ @element : "developer-portal";
+
+ @import (multiple) '../../theme.less';
+ .loadVariables();
+
+/*-------------------------------
+            Pages
+--------------------------------*/
+
+.developer-portal.page {
+    &.overview-page {
+        .jumbotron {
+            padding: @overviewPageJumbotronPadding;
+
+            &.with-animated-background {
+                -webkit-transition: @overviewPageJumbotronAnimatedBackgroundTransition;
+                -moz-transition:  @overviewPageJumbotronAnimatedBackgroundTransition;
+                -o-transition:  @overviewPageJumbotronAnimatedBackgroundTransition;
+                transition:  @overviewPageJumbotronAnimatedBackgroundTransition;
+            }
+
+            &:hover {
+                &.with-animated-background {
+                    background-position-x: @overviewPageJumbotronAnimatedBackgroundHoverXPositionOffset;
+                    background-position-y: @overviewPageJumbotronAnimatedBackgroundHoverYPositionOffset;
+                }
+            }
+        }
+        .technology-showcase {
+            .labeled-card-wrapper {
+                &:not(:last-child) {
+                    margin-right: @overviewPageTechnologyShowcaseCardsMarginRight;
+                }
+
+                .labeled-card {
+                    .card-image-container {
+                        .theme-icon {
+                            svg.icon .path {
+                                transition: fill 0.5s ease;
+                            }
+                        }
+                    }
+                }
+
+                &:not(:hover) {
+                    .labeled-card {
+                        .card-image-container {
+                            .theme-icon {
+                                svg.icon .path {
+                                    fill: @iconDefaultBgColor;
+
+                                    &.stroke {
+                                        stroke: @iconDefaultBgColor;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .card-label {
+                        color: @lightTextColor;
+                    }
+                }
+
+                &:hover {
+                    .card-label {
+                        color: darken(@lightTextColor, 40);
+                    }
+                }
+            }
+        }
+        .quick-links {
+            .ui.card {
+                max-width: @overviewPageQuickLinksCardMaxWidth;
+
+                .theme-icon {
+                    padding-top: 2em;
+                }
+                .content {
+                    border-top: none;
+                    padding: 1em 2em 1.5em 2em;
+
+                    .header {
+                        font-size: 1.1em;
+                    }
+                    .description {
+                        font-size: 0.9em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+ /*****************************************
+             Sign-in Method Section
+ *****************************************/
+
+.sign-on-methods-tab-content {
+    .sign-in-method-landing {
+        .default-config-column {
+            .default-config-description {
+                padding: 2em 3em;
+
+                .default-config-description-content {
+                    max-width: 400px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+
+    .authentication-flow-section {
+
+        .authentication-steps-section {
+
+            .authentication-step-container {
+                margin-bottom: 2em;
+
+                .authentication-step-actions {
+                    .step-header {
+                        position: absolute;
+                        top: -10px;
+                    }
+
+                    .delete-button {
+                        position: absolute;
+                        top: -10px;
+                        right: -5px;
+                        color: @nobel;
+
+                        &:hover {
+                            color: @black;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .authentication-step {
+                    background-color: @whiteSmoke;
+                    padding: @signOnMethodsAuthStepPadding;
+                    border-radius: @defaultBorderRadius;
+                    display: @signOnMethodsAuthStepDisplay;
+                    overflow: @signOnMethodsAuthStepOverflow;
+                    flex-direction: @signOnMethodsAuthStepFlexDirection;
+                    min-height: @signOnMethodsAuthStepMinHeight;
+                    flex-wrap: wrap;
+                    align-content: center;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    &.empty-placeholder-container {
+                        align-content: center;
+                        justify-content: center;
+
+                        .empty-placeholder {
+                            padding-top: 0;
+                        }
+                    }
+                }
+
+                .checkboxes-extension {
+                    margin: 0 0 15px 0;
+                    padding: 10px 10px 10px 0;
+                    border-bottom-right-radius: @defaultBorderRadius;
+                    border-bottom-left-radius: @defaultBorderRadius;
+
+                    .checkbox {
+                        &:not(:last-child) {
+                            margin-right: 20px;
+                        }
+                    }
+                }
+            }
+
+            .step-actions-container {
+
+                .action-button-group {
+                    margin: auto 0;
+                    width: max-content;
+
+                    .link-button {
+                        margin-left: 0;
+                    }
+                    .action-divider {
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+
+        &.timeline {
+            margin-left: 30px;
+
+            .timeline-button {
+                display: flex;
+
+                &.start {
+                    top: 16px;
+                    margin-left: -14px;
+                    position: relative;
+
+                    svg.icon {
+                        width: 60px;
+                    }
+                }
+
+                &.add {
+                    margin-left: -1.9px;
+
+                    svg.icon {
+                        width: 28px;
+                    }
+
+                    &:before {
+                        background-color: @signOnMethodsAuthStepBorderColor;
+                        content: "";
+                        display: block;
+                        left: 18px;
+                        position: relative;
+                        top: 23px;
+                        height: 18px;
+                        margin-top: 5px;
+                        width: 1px;
+                    }
+
+                    &:after {
+                        content: '';
+                        position: relative;
+                        left: -17.5px;
+                        top: 42px;
+                        display: block;
+                        border-right: 1px solid @signOnMethodsAuthStepBorderColor;
+                        border-bottom: 1px solid @signOnMethodsAuthStepBorderColor;
+                        width: 8px;
+                        height: 8px;
+                        transform: rotate(45deg);
+                    }
+                }
+
+                &.done {
+                    margin-left: -8px;
+                    margin-top: 25px;
+                }
+            }
+            .timeline-item {
+                display: flex;
+                margin-left: 16px;
+                padding: 16px 0;
+                position: relative;
+                align-items: center;
+                flex-direction: row;
+
+                .timeline-badge {
+                    align-items: center;
+                    background-color: @white;
+                    border: 1px solid #838383;
+                    border-radius: 50%;
+                    color: @black;
+                    display: flex;
+                    flex-shrink: 0;
+                    height: 25px;
+                    justify-content: center;
+                    margin-left: -12px;
+                    margin-right: 8px;
+                    position: relative;
+                    width: 25px;
+                    z-index: 1;
+                    font-size: 0.8em;
+
+                    &:after {
+                        background-color: @signOnMethodsAuthStepBorderColor;
+                        content: "";
+                        display: block;
+                        left: 24px;
+                        position: absolute;
+                        width: 58px;
+                        height: 1px;
+                    }
+                }
+
+                .timeline-body {
+                    flex: auto;
+                    margin: 0 0 0 50px;
+                    max-width: 100%;
+                    min-width: 0;
+
+                    .authentication-step-actions {
+                        .step-header {
+                            display: none;
+                        }
+                    }
+
+                    .authentication-step {
+                        border: 1px solid @signOnMethodsAuthStepBorderColor;
+
+                        &.empty-placeholder-container {
+                            .empty-placeholder {
+                                padding-bottom: 8px;
+                            }
+                        }
+                    }
+
+                    .checkboxes-extension {
+                        margin-bottom: 0;
+                        padding-bottom: 0;
+                    }
+                }
+
+                &:before {
+                    background-color: @defaultBorderColor;
+                    bottom: 0;
+                    content: "";
+                    display: block;
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    width: 1px;
+                }
+            }
+        }
+    }
+
+    .conditional-auth-section {
+        .conditional-auth-accordion {
+            &-title {
+                display: flex;
+
+                &-text {
+                    margin-left: 20px;
+
+                    .heading {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                }
+            }
+
+            &-content {
+                padding: 0;
+            }
+
+            &-toggle {
+                margin: auto 0;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: @computerBreakpoint) {
+    .sign-on-methods-tab-content {
+        .sign-in-method-landing {
+            .default-config-column {
+                border-right: @defaultBorderWidth solid @defaultBorderColor;
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: @computerBreakpoint) {
+    .sign-on-methods-tab-content {
+        .sign-in-method-landing {
+            .default-config-column {
+                border-right: none;
+                border-bottom: @defaultBorderWidth solid @defaultBorderColor;
+                margin-bottom: 3em !important;
+            }
+        }
+    }
+}
+
+/*-------------------------------
+         Sign-in methods
+     Add Authenticator Modal
+--------------------------------*/
+
+.add-authenticator-modal {
+    .step-selection-dropdown-container {
+        background: @pageBackground !important;
+        border-bottom: 1px solid @defaultBorderColor;
+    }
+    .authenticator-search-container {
+        padding-bottom: 10px !important;
+    }
+    .authenticator-container {
+        height: 385px;
+
+        .authenticator {
+
+            &.with-labels {
+                min-height: 160px;
+            }
+
+            &.add-custom-authenticator-card {
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-content: space-around;
+                }
+            }
+        }
+    }
+}
+
+.authenticator-item-wrapper {
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    .authenticator-card {
+        font-size: @signOnMethodsAuthCardFontSize;
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .close-button {
+                box-shadow: -1px 1px 1px 0px #00000017;
+                border: none;
+
+                &:hover {
+                    box-shadow: @defaultCardHoverBoxShadow;
+                }
+            }
+        }
+    }
+}
+// Check if `gap` is supported to be added to auth options.
+@supports (gap: 10px) and (display: flex) {
+    .authentication-step {
+
+        &:not(.empty-placeholder-container) {
+            gap: 10px;
+        }
+
+        .authenticator-item-wrapper {
+            margin-right: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+/*-------------------------------
+  Duplicate Social Authenticator
+        Selection Modal
+--------------------------------*/
+
+.duplicate-social-authenticator-selection-modal {
+    .authenticator-grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}
+
+/*****************************************
+   Script editor with selection panel
+*****************************************/
+
+.script-editor-with-template-panel {
+
+    &:not(.no-border) {
+        border: @defaultBorderWidth solid @defaultBorderColor;
+        border-radius: @defaultBorderRadius;
+    }
+
+    .script-editor-container {
+        transition: width ease-in-out 0.2s;
+
+        .code-editor-wrapper {
+            padding: 0;
+            border: none;
+        }
+
+        .action-panel {
+            border: none !important;
+
+            .action {
+                .theme-icon {
+                    padding: 8px;
+                }
+
+                &:hover {
+                    .theme-icon {
+                        background: @subtleTransparentBlack;
+                    }
+                }
+
+                &.hamburger {
+                    padding: 10px 9px;
+
+                    i {
+                        margin-right: 0;
+                    }
+                }
+
+                &:not(.hamburger) {
+                    padding-left: 2px;
+                    padding-right: 2px;
+                }
+            }
+
+            .selected-secret {
+                .theme-icon {
+                    background: @subtleTransparentBlack;
+                }
+            }
+        }
+    }
+
+    .reset-button {
+        cursor: pointer;
+
+        &:hover {
+            color: @primaryColor;
+        }
+    }
+
+    .script-templates-panel {
+        padding: 1em !important;
+        border: none !important;
+        box-shadow: none !important;
+
+        &.left {
+            ~.pusher {
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+
+        .template-category-menu {
+            margin-right: 0;
+
+            > .item {
+                padding: 0;
+                line-height: 1.1em;
+
+                .category-name {
+                    background: @white;
+                    padding: 0.9em 1em;
+                    border-radius: @defaultBorderRadius;
+                    border-left: 3px solid transparent;
+
+                    &.active {
+                        box-shadow: 0 2px 3px 0 @darkGray;
+                        border-left: 3px solid @primaryColor;
+                    }
+
+                    .caret-icon {
+                        transition: transform .1s ease-in-out;
+                        float: right;
+                    }
+
+                    &.active {
+                        .caret-icon {
+                            transform: rotate(90deg);
+                        }
+                    }
+                }
+
+                .template-list {
+                    > .item {
+                        display: flex;
+                        justify-content: space-between;
+                        background: darken(@white, 1);
+                        margin: 0;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        color: lighten(@textColor, 20);
+                        font-size: 0.9em;
+
+                        &:not(:last-child) {
+                            border-bottom: 1px solid lighten(@defaultBorderColor, 30);
+                            border-bottom-right-radius: 0;
+                            border-bottom-left-radius: 0;
+                        }
+
+                        &:not(:first-child) {
+                            border-top-right-radius: 0;
+                            border-top-left-radius: 0;
+                        }
+
+                        .template-name {
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            overflow: hidden;
+                        }
+
+                        .add-button {
+                            cursor: pointer;
+
+                            &:hover {
+                                color: @primaryColor;
+                            }
+                        }
+
+                        &.active {
+                            border-left: 2px solid @primaryColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*****************************************
+        Email Template
+*****************************************/
+.email-code-editor {
+    .ui.menu {
+        border-bottom: 1px solid #ccc !important;
+        margin-bottom: 0px;
+
+        .item {
+            background-color: #F8F8F8 !important;
+            border-top: 1px solid #ccc !important;
+            border-right: 1px solid #ccc !important;
+            border-bottom-color: #ccc !important;
+
+            &:first-child {
+                border-left: 1px solid #ccc;
+            }
+        }
+
+        .active {
+            border-top: 1px solid #ccc !important;
+            border-right: 1px solid #ccc !important;
+            border-bottom: 2px solid #fff !important;
+            background-color: #fff !important;
+
+            &:first-child {
+                border-left: 1px solid #ccc !important;
+            }
+        }
+    }
+
+    .ui.segment {
+        border: 1px solid #ccc !important;
+        border-top: none !important;
+        border-radius: 0px;
+        margin-top: 0px;
+    }
+
+    .CodeMirror {
+        height: 60vh;
+    }
+
+    .render-view {
+        overflow: hidden;
+        padding-top: 56.25%;
+        position: relative;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.email-template-flag {
+    float: left !important;
+    margin-top: 3px !important;
+    margin-right: 10px !important;
+}
+
+.template-view-content {
+    padding: 0 !important;
+
+    .email-code-editor {
+        height: 100%;
+
+        .render-view {
+            height: 100%;
+        }
+    }
+}
+
+.mail-signature {
+    .render-view {
+        padding-top: 36.25%;
+    }
+
+    .CodeMirror {
+        height: 40vh;
+    }
+}
+
+ .empty-placeholder-center {
+     position: relative;
+     top: 50%;
+     -webkit-transform: translateY(-50%);
+     -ms-transform: translateY(-50%);
+     transform: translateY(-50%);
+ }
+
+ .claim-scrolling-list {
+     overflow-y: auto;
+     height: 250px;
+     overflow-x: hidden;
+     padding: 10px;
+
+     &.selected {
+         background-color: #f4f7f9;
+         height: 304px;
+     }
+ }
+
+ #claim-scroll::-webkit-scrollbar {
+     -webkit-appearance: none;
+     width: 2px;
+     height: 1px;
+ }
+
+ .local-dialect-direct {
+    padding: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: #f3f3f3;
+    }
+ }
+
+ .loadUIOverrides();
+
+.transfer-list-sub-content {
+  color: @darkGray;
+}
+
+/*****************************************
+   IdP Outbound  Provisioning  Roles
+*****************************************/
+.outbound-provisioning-roles {
+    &.role-select-dropdown {
+        .field {
+            display: inline-block;
+            width: 85%;
+            margin-right: 8px;
+        }
+    }
+}
+
+.danger-zone {
+    &.toggle-switch {
+        float: right;
+    }
+    .inline-button {
+        display: inline-block;
+        float: right;
+
+        &.button-width {
+            width: 100%;
+        }
+    }
+}
+
+.feedback-category {
+    padding: 1em 0 2em 0 !important;
+
+    .row .column:first-child {
+        padding-right: 5px !important;
+    }
+
+    .row .column:nth-child(2) {
+        padding-right: 5px !important;
+        padding-left: 5px !important;
+    }
+
+    .row .column:last-child {
+        padding-left: 5px !important;
+    }
+
+    input:checked + label {
+        background: #f7f7f7;
+    }
+
+    input {
+        display: none;
+    }
+
+    label:not(:first-child) {
+        padding: 1em;
+        display: block;
+        text-align: center;
+        border: 1px solid #3333;
+        border-radius: 5px;
+    }
+}
+
+/*****************************************
+   Adaptive Script Template Description
+*****************************************/
+.stepper {
+    display: grid;
+    grid-template-columns: 25px 1fr;
+    grid-template-rows: 25px 1fr;
+    grid-gap: 10px;
+    margin-bottom: 10px;
+
+    .step-number {
+        border-radius: 50%;
+        background-color: @primaryColor;
+        color: @white;
+        text-align: center;
+        padding: 5px;
+        height: 25px;
+        width: 25px;
+        font-size: 0.8em;
+    }
+
+    .step-text {
+        grid-row-start: 1;
+        grid-column-start: 2;
+        grid-row-end: 3;
+        padding-top: 5px;
+    }
+
+    .step-connector {
+        height: 100%;
+        min-height: 25px;
+        display: flex;
+        justify-content: center;
+
+        .step-line {
+            height: 100%;
+            width: 1px;
+            background-color: @paleGray;
+        }
+    }
+}
+
+/*****************************************
+    Remote Repository Configuration
+*****************************************/
+.deployment-status {
+    margin: 0 1em !important;
+}
+
+/*****************************************
+    Role Management View
+*****************************************/
+.tree-arrow-wrap {
+    cursor: pointer;
+    float: left;
+    margin-left: -3px;
+    margin-right: 5px;
+
+    .tree-arrow {
+        cursor: pointer;
+        display: inline-block;
+        height: 18px;
+        position: relative;
+        top: 4px;
+        width: 18px;
+
+        span {
+            background-color: @treeArrowBackgroundColor;
+            display: inline-block;
+            height: 0.1rem;
+            position: absolute;
+            top: 0.5rem;
+            width: 0.75rem;
+
+            &:first-of-type {
+                -webkit-transform: rotate(45deg);
+                left: 0;
+                transform: rotate(45deg);
+            }
+
+            &:last-of-type {
+                -webkit-transform: rotate(-45deg);
+                right: 0;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    .tree-arrow.active {
+        span {
+
+            &:first-of-type {
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+                left: 2px;
+                top: 1px;
+            }
+
+            &:last-of-type {
+                -webkit-transform: rotate(135deg);
+                transform: rotate(135deg);
+                left: 3px;
+                top: 9px;
+            }
+        }
+    }
+
+}
+
+.rc-tree-switcher{
+    &.rc-tree-switcher_open, &.rc-tree-switcher_close {
+        background: none !important;
+    }
+}
+
+.role-assigned-button {
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+.role-permission-form {
+    margin-bottom: 14px;
+}
+
+.role-permission-list {
+    margin-top: 14px;
+    padding-bottom: 14px;
+
+    .form-label {
+        font-size: 13px;
+    }
+
+    .ui.basic.segment.bordered.emphasized {
+        margin-top: 4px;
+    }
+
+    .list-item-text .MuiListItemText-root {
+        max-width: 70% !important;
+    }
+}
+
+.role-chip-popover {
+    pointer-events: none;
+}
+
+.role-chip-more-details {
+    padding: 12px !important;
+
+    .MuiCardContent-root {
+        padding: 0 !important;
+    }
+}
+
+/*-------------------------------
+      Connector Sections
+--------------------------------*/
+
+.connector-section-content {
+    padding : 2em 2em !important;
+}
+
+.connector-section-with-image-bg {
+    height: @connectorSectionWithImageBgHeight;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    background-position: right !important;
+    background-origin: unset !important;
+}
+
+/*-------------------------------
+      Item List Selection
+--------------------------------*/
+
+.item-selection, .transfer-list.one-column-selection {
+
+    .transfer-segment {
+        overflow: hidden;
+
+        .ui.checkbox {
+            &.all-select {
+                margin: 20px 10px 0 0;
+                border: @defaultBorderWidth solid @defaultBorderColor;
+                background-color: @pageBackground;
+                padding: 10px;
+                border-radius: 3px;
+                font-weight: 500;
+            }
+        }
+
+        .transfer-list-segment {
+            max-height: 14.6rem !important;
+            overflow: auto;
+
+            thead tr:first-child {
+
+                th {
+                    position: sticky;
+                    position: -webkit-sticky;
+                    top: 0;
+                    z-index: 2;
+                }
+            }
+        }
+    }
+}
+
+/*-------------------------------
+      IDP Template Grid
+--------------------------------*/
+
+.template-grid {
+    &.idp-template-grid {
+        .template-card {
+            .card-image-container {
+                padding-top: @idpTemplateGridPaddingTop;
+            }
+        }
+    }
+}
+
+/*-------------------------------
+      Form Container Styles
+--------------------------------*/
+.form-wrapper {
+    &.with-max-height {
+        max-height: @formWrapperMaxHeight;
+        overflow: auto;
+    }
+}
+
+.form-container {
+    &.with-max-width {
+        max-width: @formContainerMaxWidth;
+    }
+    &.subject-attribute-selection {
+        max-width: @applicationSubjectSelectWidth;
+    }
+}
+
+// Styles for the form section component. @see @thiva/react-components -> FormSection
+.form-section {
+    .form-section-top-divider {
+        margin: 0;
+    }
+    .form-section-heading {
+        margin-top: 20px;
+    }
+}
+
+/*-------------------------------
+   Authenticator Scopes Styles
+   TODO: Remove once a seperate
+  form is written for Google IDP.
+--------------------------------*/
+
+.authenticator-scope {
+    display: flex;
+    margin-bottom: 1em;
+
+    .scope-name-container {
+        display: flex;
+        min-width: 200px;
+        margin-right: 2em;
+    }
+}
+
+/*-------------------------------
+        IDP Authenticator
+ Readonly Dynamic Property Styles
+--------------------------------*/
+
+.authenticator-dynamic-properties {
+
+    .authenticator-dynamic-property {
+        display: flex;
+        margin-bottom: 1em;
+        padding-bottom: 10px;
+
+        &.separated {
+            &:not(:last-child) {
+                border-bottom: @defaultBorderWidth solid @defaultBorderColor;
+            }
+        }
+
+        .authenticator-dynamic-property-name-container {
+            display: flex;
+            min-width: 180px;
+            margin-right: 2em;
+        }
+    }
+}
+
+/*-------------------------------
+   Basic Feature Tour Styles
+--------------------------------*/
+
+.__floater.__floater__open {
+    z-index: 9999 !important;
+}
+
+.react-joyride__tooltip {
+    [data-action="primary"] {
+        min-height: 1em;
+        outline: none;
+        border: none !important;
+        vertical-align: baseline;
+        background: @primaryColorGradient !important;
+        color: @white !important;
+        font-family: inherit;
+        font-size: 1rem !important;
+        margin: 0 .25em 0 0;
+        padding: .78571429em 1.5em .78571429em !important;
+        text-transform: none;
+        text-shadow: none;
+        font-weight: 400;
+        line-height: 1em !important;
+        font-style: normal;
+        text-align: center;
+        text-decoration: none;
+        border-radius: @buttonBorderRadius !important;
+    }
+
+    [data-action="back"] {
+        min-height: 1em;
+        outline: none;
+        border: none !important;
+        vertical-align: baseline;
+        background: transparent !important;
+        color: @primaryColor !important;
+        font-family: inherit;
+        font-size: 1rem !important;
+        margin: 0 .25em 0 0;
+        padding: .78571429em 1.5em .78571429em !important;
+        text-transform: none;
+        text-shadow: none;
+        font-weight: 500;
+        line-height: 1em !important;
+        font-style: normal;
+        text-align: center;
+        text-decoration: none;
+        border-radius: @defaultBorderRadius !important;
+    }
+
+    [data-action="skip"] {
+        min-height: 1em;
+        outline: none;
+        border: none !important;
+        vertical-align: baseline;
+        background: transparent !important;
+        color: @nobel !important;
+        font-family: inherit;
+        font-size: 1rem !important;
+        margin: 0 .25em 0 0;
+        padding: 0.785714em 1.5em 0.78571429em 0.7em !important;
+        text-transform: none;
+        text-shadow: none;
+        font-weight: 500;
+        line-height: 1em !important;
+        font-style: normal;
+        text-align: center;
+        text-decoration: none;
+        border-radius: @defaultBorderRadius !important;
+    }
+
+    .tour-step {
+        text-align: left;
+        padding-bottom: 0;
+    }
+}
+
+/*-------------------------------
+   Application Protocol
+--------------------------------*/
+
+.protocol-landing-title {
+    margin-top: 40px;
+}
+
+.protocol-banner-sub-title {
+    margin-top: -10px !important;
+}
+
+.protocol-selection-wrapper {
+    padding: 8em 0 !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    .text-typography {
+        color: @dustyGray !important;
+    }
+
+    .protocol-card {
+        background-color: @white !important;
+        border-color: @defaultBorderColor !important;
+
+        .description {
+            font-size: 1.4em;
+            color: @black !important;
+        }
+    }
+}
+
+.saml-config-mode-wizard-tab {
+    font-size: 14px !important;
+}
+
+
+/*-------------------------------
+    Organization Breadcrumb
+--------------------------------*/
+
+.organization-breadcrumb-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 5px 0px;
+    margin-left: 5px;
+
+    .organization-breadcrumb {
+        cursor: pointer;
+
+        .organization-breadcrumb-label {
+            font-size: 11px;
+            color: #000000;
+            margin-bottom: -1px;
+            font-weight: 200;
+        }
+
+        .organization-breadcrumb-icon {
+            color: #000000 !important;
+            align-items: center;
+            margin: 0px 10px;
+        }
+
+        .organization-breadcrumb-item {
+            color: #000000;
+            min-height: 15px;
+            margin: -3px 0;
+            text-decoration: none;
+
+            &.un-clickable {
+                cursor: default;
+                pointer-events: none;
+            }
+        }
+
+        .organization-breadcrumb-item-divider {
+            margin: 0 5px !important;
+            color: #000000;
+        }
+    }
+
+    .organization-name {
+        min-height: 15px;
+    }
+
+    // Only add spacing and left formatting if the hamburger is present.
+    &.show-hamburger {
+        .tenant-dropdown-wrapper {
+            padding-left: @tenantDropdownWrapperSpacingLeft;
+
+            .tenant-dropdown {
+                margin-left: 5px;
+
+                &:before {
+                    content: '';
+                    width: 5px;
+                    height: 100%;
+                    position: absolute;
+                    left: -@tenantDropdownWrapperSpacingLeft;
+                }
+            }
+        }
+    }
+}
+
+.tenant-dropdown-wrapper,
+.contained-trigger-wrapper {
+    padding-left: 0;
+
+    .tenant-dropdown {
+        border-radius: @tenantDropdownTriggerBorderRadius !important;
+
+        .tenant-dropdown-links-category-header {
+            text-transform: none;
+            border-bottom: none !important;
+            font-weight: 500;
+            color: @lightFontColor;
+            padding: 0 20px !important;
+            margin-bottom: 8px;
+        }
+
+        .tenant-dropdown-trigger {
+            display: contents;
+
+            .tenant-dropdown-trigger-display-name {
+                max-width: @tenantDropdownTriggerDisplayNameMaxWidth;
+                line-height: initial;
+                margin-top: -3px;
+            }
+
+            .theme-icon {
+                svg {
+                    >path {
+                        fill: @tenantDropdownTriggerTextColor;
+                    }
+                }
+            }
+        }
+
+        .ui.items {
+            margin: 0;
+        }
+
+        i.dropdown.icon {
+            display: none;
+        }
+    }
+}
+
+.tenant-dropdown {
+    .divider {
+        margin: 0;
+    }
+
+    .tenant-dropdown-menu {
+        padding: 0.3rem 0rem !important;
+    }
+
+    .current-tenant {
+        .name {
+            max-width: 150px;
+        }
+
+        .org-id {
+            max-width: 130px;
+            font-weight: 400;
+            font-size: 11px;
+            margin-right: 5px;
+            color: #565656;
+        }
+
+        .org-id-copy-btn {
+            padding: 0px;
+            box-shadow: none;
+        }
+
+        .org-id-copy-btn:hover, .org-id-copy-btn:focus {
+            box-shadow: none;
+        }
+
+        .spaced-right {
+            padding-right: 5px;
+        }
+    }
+
+    .menu {
+        min-width: @tenantDropdownMinWidth !important;
+        padding: @tenantDropdownPadding;
+
+        .header {
+            border-bottom: 1px solid @defaultBorderColor;
+
+            .content {
+                padding-left: 15px;
+
+                .description {
+                    margin-top: 0;
+
+                    .name {
+                        font-weight: bold;
+                        min-width: 100px;
+                    }
+
+                    .default-button {
+                        min-width: 60px;
+                        padding: 0.4em 1em;
+                        font-size: 0.8em;
+
+                        &.active {
+                            box-shadow: 0 0 0 1px @tenantDropdownDefaultButtonBorderColor inset !important;
+                            background-color: @tenantDropdownDefaultButtonBackground !important;
+
+                            &:hover {
+                                box-shadow: 0 0 0 1px @tenantDropdownDefaultButtonHoverBorderColor inset !important;
+                            }
+                        }
+
+                        &.disabled {
+                            box-shadow: 0 0 0 1px @tenantDropdownDefaultLabelBorderColor inset !important;
+                            background-color: @tenantDropdownDefaultLabelBackground !important;
+                            color: @black !important;
+
+                            &.loading {
+                                color: transparent !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .sub-org-header {
+            border-bottom: none;
+            padding-bottom: 5px;
+        }
+
+        .back-button-wrapper {
+            padding-left: 20px !important;
+        }
+
+        .search-bar {
+            padding: 12px 0;
+            margin: 0;
+
+            &.tenant {
+                padding: 12px 15px !important;
+            }
+        }
+
+        .tenant-pagination {
+            display: flex;
+            justify-content: flex-end;
+
+            &.organizations {
+                margin-top: 1em;
+            }
+
+            button {
+                &:first-child {
+                    margin-left: 8px;
+                }
+            }
+        }
+
+        .tenants-list {
+            max-height: 210px;
+            overflow: auto;
+            padding: 5px 0px;
+
+            .tenant-account {
+                border-radius: @defaultBorderRadius !important;
+                padding: @tenantDropdownTenantPadding !important;
+                border: none;
+                transition: none !important;
+                margin: 0;
+
+                .tenant-list-item-content {
+                    display: flex !important;
+                    align-items: center;
+                }
+
+                .theme-icon {
+                    margin-top: 0 !important;
+                    padding: 8px;
+                }
+
+                .description {
+                    margin-top: 0;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    background: darken(@whiteSmoke, 2);
+                }
+
+                .name {
+                    font-weight: 400;
+                }
+
+                .email {
+                    color: @nobel;
+                }
+            }
+
+            .empty-list {
+                margin: 8px 0;
+                padding: 5px 10px !important;
+
+                .message {
+                    color: @nobel;
+                    height: 30px;
+                    padding-top: 5px;
+                    text-align: center;
+                }
+            }
+        }
+
+        .action-panel {
+            border: none;
+            margin: @tenantDropdownLinkMargin;
+            min-height: @tenantDropdownLinkMinHeight;
+            line-height: 0 ! important;
+            border-radius: @defaultBorderRadius;
+            padding: 6px 16px !important;
+            display: flex !important;
+            align-items: center;
+
+            svg {
+                margin-right: 1em;
+            }
+
+            &.no-hover {
+                &:hover {
+                    background: transparent !important;
+                }
+            }
+
+            .link-icon {
+                color: @textColor;
+            }
+
+            .link-text {
+                color: @textColor;
+                text-decoration: none;
+            }
+
+            .action-button {
+                background: #f8f8f8;
+                border: 1px solid #c6c6c6;
+                line-height: 28px;
+                padding: 6px 20px;
+                color: #666;
+
+                &,
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.ui.dropdown.item.tenant-dropdown .menu .item.tenant-account {
+    &,
+    &:not(.filtered) {
+        display: flex;
+        padding: @relativeMini @relativeLarge;
+    }
+}
+
+.ui.dropdown.item.tenant-dropdown .menu .item.header {
+    &,
+    &:not(.filtered) {
+        display: flex;
+        padding: @relativeMini @relativeLarge;
+    }
+
+    .ui.divider {
+        margin: 0.5rem 0rem;
+    }
+}
+
+.share-organization-placeholder {
+    height: 291px;
+}
+
+// Removing min-width from tenant dropdown search bar
+.advanced-search-wrapper {
+    &.tenant-dropdown-search {
+        .ui.input.advanced-search {
+            width: 100%;
+            min-width: unset;
+        }
+    }
+}
+
+// Fix for the unstackable list item images getting weird sizes on mobile.
+@media only screen and (max-width: @tabletBreakpoint) {
+    .tenant-dropdown {
+        .current-tenant {
+            .ui.image.tenant-image.x60 {
+                width: 60px !important;
+            }
+
+            .name {
+                max-width: 200px;
+            }
+        }
+    }
+
+    // Fix for username and avatar in the header being pushed right to the right edge in tablet view
+    &:not(.fluid-header) {
+        .tenant-dropdown {
+            padding-right: 0.92857143em;
+        }
+    }
+}
+
+// If hamburger should not be shown, only hide the tenant dropdown separator in tablet and mobile views.
+@media only screen and (min-width: @tabletBreakpoint) {
+    // Only add spacing and left formatting if the hamburger is present.
+    &:not(.show-hamburger) {
+        .tenant-dropdown-wrapper {
+            padding-left: @tenantDropdownWrapperSpacingLeft;
+
+            .tenant-dropdown {
+                margin-left: 5px;
+
+                &:before {
+                    content: '';
+                    width: 5px;
+                    height: 100%;
+                    position: absolute;
+                    border-left: 1px solid @tenantDropdownSeparatorBorderColor;
+                    left: -@tenantDropdownWrapperSpacingLeft;
+                }
+            }
+        }
+    }
+}
+
+.ui.menu {
+
+    &.organization-breadcrumb,
+    .organization-breadcrumb {
+        background: @tenantDropdownTriggerBackground;
+    }
+
+    .item {
+        &.breadcrumb {
+            >span {
+                &.super {
+                    padding: 7px 10px;
+                }
+            }
+        }
+
+        &.contained-trigger-wrapper {
+            padding: 0 !important;
+        }
+    }
+}
+
+/*-------------------------------
+    OIDC User attribute table
+--------------------------------*/
+
+.ui.table {
+    .table-header-oidc-user-attribute {
+        th {
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+        }
+    }
+}
+
+/*-------------------------------
+     Validation Configurations
+--------------------------------*/
+
+.validation-configurations {
+    &.password-validation-configurations {
+        .validation-configurations-form {
+
+            .criteria {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-content: center;
+                align-items: baseline;
+                gap: 10px;
+
+                .labelName {
+                    margin-bottom: 20px;
+                    margin-top: 15px;
+                }
+                &.rule {
+                    margin-left: 30px;
+                }
+
+                .ui.form {
+                    .field {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*-------------------------------
+     Password Generation
+--------------------------------*/
+.generate-password {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    gap: 10px;
+
+    .full-width {
+        flex-grow: 1;
+    }
+
+    .ui.button {
+        margin-top: 7px;
+    }
+}
+
+/*----------------------------------------
+      Connections page
+------------------------------------------*/
+
+.ui.button.setup-guide-button {
+    background: none;
+    border: none;
+    color: #808080;
+    font-size:14px;
+    height: 36px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-left: 14px;
+    margin-right: 9px;
+    padding: 0px 14px;
+    float:right;
+}
+
+.ui.button.idp-create-button {
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 54px;
+    color: #ff7300;
+}
+
+/*-------------------------------------------
+            Organization Insights Graphs
+---------------------------------------------*/
+.org-insights-container {
+    margin-top: -2%;
+}
+
+.org-insights-comparison-checkbox {
+    margin-top: 0;
+}
+
+.org-insights-graph-placeholder {
+    height: 375px;
+}
+
+.org-insights-graph-container {
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.org-insights-graph-tooltip {
+    background-color: #3d3d3d;
+    color: white;
+    width: 170%;
+    padding: 20% 0% 20% 20%;
+    border-radius: 10px;
+}
+
+.org-insights-graph-tooltip > p {
+    margin: 0;
+}
+
+.org-insights-tooltip-date-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.org-insights-current-period-indicator {
+    height: 10px;
+    width: 10px;
+    background-color: orange;
+    border-radius: 50%;
+}
+
+.org-insights-tooltip-date {
+    margin: 0;
+    margin-left: 5%;
+}
+
+.org-insights-last-fetched-warning {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 4%;
+    margin-right: 0.1%;
+}
+
+.org-insights-duration-notice-container {
+    display: flex;
+    flex-direction: row;
+    padding: 1% 0 0.5% 0;
+    margin: 1% 0%;
+    background: transparent;
+    align-items: center;
+    height: '7vh'
+}
+
+.org-insights-graph-total-count {
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.org-insights-mau-tooltip {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.org-insights-filter-container {
+    background-color: transparent;
+    width: 100%;
+    padding: 0%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+}
+
+.org-insights-filter-container-advanced-filtering-enabled {
+    background-color: white;
+    padding: 0.1%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+}
+
+.org-insights-filter-container > .oxygen-text-field {
+    width: 100%
+}
+
+.org-insights-advanced-filter-trigger {
+    cursor: pointer;
+    pointer-events: auto;
+    border-radius: 8px;
+    margin-left: 24px;
+    padding: 0.5% 0.5% 0.3% 0.5%;
+    background: lightgray;
+}
+
+.org-insights-filter-submit-btn {
+    margin-top: 4%;
+    margin-left: auto;
+}
+
+.org-insights-advanced-filter-clear-button {
+    margin-left: 1%;
+    margin-top: 0;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.org-insights-dropdown {
+    background: #F8F8FB;
+    margin-right: 2px;
+    box-shadow: none;
+    border-radius: 8px;
+
+    .MuiOutlinedInput-notchedOutline {
+        border: 0 !important;
+    }
+
+    .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+        border: 0 !important;
+    }
+
+    .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border: 0 !important;
+    }
+}
+
+.org-insights-advanced-filter-container {
+    padding: 4%;
+    width: 400px;
+    z-index: 1000;
+}
+
+.org-insights-advanced-filter-container > p {
+    margin: 0;
+}
+
+.org-insights-filter-condition-container {
+    margin-top: 4%;
+}
+
+.org-insights-tab-view {
+    background-color: rgb(249,248,247) !important;
+    box-shadow: 0 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+.org-insights-helper-text {
+    margin: 0;
+    padding: 0;
+}
+
+.org-insights-filter-chip {
+    padding: 1% 0% 1% 0% !important;
+
+    .MuiChip-label {
+        text-transform: none !important;
+    }
+}
+
+.org-insights-filter-icon {
+    padding: 0;
+}
+
+.org-insights-duration-dropdown {
+    border-radius: 8px;
+}
+
+/*-------------------------------
+    Trusted Token Issuer Modal
+--------------------------------*/
+
+.required-certificate-label {
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.required-certificate-label::after {
+    margin-left: 0.2em;
+    content: "*";
+    color: #E53535;
+}
+
+.switcher-grid {
+    width: 93.75% !important;
+}
+
+/*-------------------------------
+            Oxygen UI
+--------------------------------*/
+
+.oxygen-brand-portal-name {
+    margin-top: 4.6px;
+}
+
+.oxygen-button {
+    padding: 8px 16px;
+}
+
+.user-dropdown-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+/*-------------------------------
+    Alternative Login Identifier
+--------------------------------*/
+
+.alternative-login-identifier-checkbox {
+    padding: 0;
+}
+
+.alternative-login-identifier-item-text {
+    padding-left: 1rem;
+}
+
+.ui.info {
+    &.alternative-login-identifier-info {
+        margin-left: 2rem;
+    }
+}
+
+
+.oxygen-code {
+    &.alternative-login-identifier-code {
+        background-color: transparent;
+        border: none;
+        font-size: 0.9rem;
+        padding: 0;
+    }
+}
+
+/*-------------------
+    Users List
+---------------------*/
+
+.sub-org-users-list {
+    margin-top: 28px;
+}

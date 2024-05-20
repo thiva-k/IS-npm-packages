@@ -1,0 +1,21 @@
+/*******************************
+         Nag Overrides
+*******************************/
+
+/*-------------------------------
+      Downtime Banner
+--------------------------------*/
+
+.ui.nag {
+    &.downtime-banner {
+        background: @warningBackgroundColor;
+        border-radius: 0;
+        min-height: fit-content;
+        position: sticky;
+        opacity: 1;
+        .title{
+            color: @black;
+            max-width: 1280px;
+        }
+    }
+}

@@ -1,0 +1,7 @@
+/*******************************
+      Checkbox Variables
+*******************************/
+
+/* Label */
+@labelFontSize: @relativeSmall;
+@checkboxBorderRadius: 3px;

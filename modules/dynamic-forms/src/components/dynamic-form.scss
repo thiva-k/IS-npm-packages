@@ -1,0 +1,55 @@
+/**
+ * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com). All Rights Reserved.
+ *
+ * This software is the property of WSO2 LLC. and its suppliers, if any.
+ * Dissemination of any information or reproduction of any material contained
+ * herein in any form is strictly forbidden, unless permitted by WSO2 expressly.
+ * You may not alter or remove any copyright or other notice from copies of this content.
+ */
+
+.dynamic-form {
+    .oxygen-text-field ~ .ui-hint.compact {
+        margin-top: 1em;
+    }
+
+    .oxygen-grid ~ .ui-hint.compact {
+        margin-top: 1em;
+    }
+
+    .oxygen-text-field {
+        .MuiOutlinedInput-root {
+            border-radius: 8px;
+            font-family: Gilmer;
+        };
+
+        .MuiOutlinedInput-input {
+            padding: 10.5px 14px;
+        };
+
+        .MuiInputLabel-root {
+            font-family: Gilmer;
+            color: #000000DE;
+        };
+
+        .MuiFormHelperText-root {
+            font-family: Gilmer;
+            font-size: 12px;
+        };
+
+        .MuiInputLabel-asterisk {
+            color: #e53535;
+        };
+    };
+
+    .oxygen-form-group {
+        margin-bottom: 2rem;
+
+        .ui.action.input {
+            margin-bottom: 1em;
+        };
+    };
+
+    .form-section {
+        margin-bottom: 20px;
+    };
+}

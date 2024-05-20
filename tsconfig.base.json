@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "declaration": false,
+        "emitDecoratorMetadata": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "lib": [
+            "ESNext"
+        ],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "rootDir": ".",
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "sourceMap": true,
+        "target": "es2015",
+        "baseUrl": ".",
+        "paths": {
+            "@thiva/dynamic-forms": ["modules/dynamic-forms/src/index.ts"],
+            "@thiva/form": ["modules/form/src/index.ts"],
+            "@thiva/forms": ["modules/forms/src/index.ts"],
+            "@thiva/react-components": [
+                "modules/react-components/src/index.ts"
+            ]
+        }
+    },
+    "compileOnSave": false,
+    "exclude": [
+        "node_modules",
+        "tmp"
+    ]
+}

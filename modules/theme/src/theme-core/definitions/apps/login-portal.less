@@ -1,0 +1,333 @@
+/*!
+ * Copyright (c) 2019-2023, WSO2 Inc. (http://www.wso2.org).
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ *
+ */
+
+@type    : "app";
+@element : "login-portal";
+
+@import (multiple) '../../theme.less';
+.loadVariables();
+
+/*-----------------------------
+     Google One Tap Styles
+------------------------------*/
+.google-one-tap-container {
+    #credential_picker_container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}
+
+.login-form {
+    .user-image {
+        margin-bottom: 1rem;
+    }
+
+    .login-buttons {
+        margin: 1.5rem 0 1rem;
+        text-align: right;
+
+        .button:last-child {
+            margin: 0;
+        }
+    }
+}
+
+/*-----------------------------
+      Login Portals Commons
+------------------------------*/
+
+.login-portal {
+    &.layout {
+        background: @loginPortalBackgroundColor;
+        height: 100%;
+        flex-direction: column;
+        display: flex;
+
+        .app-header {
+            .product-title {
+                margin: @loginPortalProductTitleInHeaderMargin;
+            }
+        }
+
+        .center-segment {
+            flex-shrink: 0;
+            margin: auto;
+            display: flex;
+            align-items: center;
+
+            > .ui.container {
+                &.medium {
+                    max-width: 450px !important;
+                }
+
+                &.large {
+                    max-width: 700px !important;
+                }
+
+                > .ui.segment {
+                    background: @loginPortalLoginCardBackground;
+                    padding: @loginPortalLoginCardPadding;
+                    border-radius: @loginPortalLoginCardBorderRadius;
+
+                    .segment-form {
+                        text-align: left;
+
+                        .buttons {
+                            margin-top: 1em;
+                        }
+
+                        .buttons.align-right {
+                            button {
+                                margin: 0 0 0 0.25em;
+                            }
+                            input {
+                                margin: 0 0 0 0.25em;
+                            }
+                        }
+
+                        .column {
+                            .buttons.align-left {
+                                button.link-button {
+                                    padding: .78571429em 1.5em .78571429em 0;
+                                }
+                                input.link-button {
+                                    padding: .78571429em 1.5em .78571429em 0;
+                                }
+                            }
+                        }
+
+                        .resend-button {
+                            padding: 0 !important;
+                            background: none !important;
+                            border: none;
+                            cursor: pointer;
+                            color: #ff5000;
+                        }
+
+                        .resend-button:hover {
+                            text-decoration: underline;
+                        }
+
+                        .align-center {
+                            text-align: center;
+                        }
+
+                        .align-right {
+                            text-align: right;
+                        }
+                    }
+
+                    .social-login, .external-login {
+                        &.social-dimmer, .external-login-dimmer {
+                            &.dimmable{
+                                overflow: inherit !important;
+                                z-index: 998 !important;
+                            }
+                            .ui {
+                                &.inverted {
+                                    &.dimmer {
+                                        border-radius: 5px;
+                                    }
+                                }
+                            }
+                            .content {
+                                p {
+                                    font-size: 12px;
+                                    padding: 1.5em;
+                                    color: #474747;
+                                }
+                            }
+                        }
+
+                        .ui.button {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            box-shadow: 0px 1px 1px 2px rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
+                            background: @loginPortalExternalConnectionButtonBackgroundColor;
+
+                            .ui.image {
+                                height: 22px;
+                                width: 22px;
+                                margin-right: auto;
+                            }
+
+                            span {
+                                margin-right: auto;
+                                margin-left: -1em
+                            }
+
+                            &:hover {
+                                background: @loginPortalExternalConnectionButtonHoverBackgroundColor;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .product-title {
+                .product-logo {
+                    padding-left: 0;
+                    margin: @loginPortalProductTitleMargin;
+
+                    img {
+                        height: @loginPortalProductLogoHeight;
+                    }
+                }
+            }
+
+            .product-logo {
+                img {
+                    max-height: @loginPortalProductLogoMaxHeight;
+                    min-height: @loginPortalProductLogoMinHeight;
+                }
+            }
+        }
+
+        #toc {
+            position: sticky;
+            top: 93px;
+        }
+
+        .ui.segment.toc {
+            padding: 20px;
+            ul.ui.list.nav {
+                >li.sub {
+                    margin-left: 20px;
+                    &:before {
+                        content: "\2192";
+                        margin-left: -1em;
+                    }
+                }
+                >li {
+                    >a {
+                        color: rgba(0,0,0,.87);
+                        text-decoration: none;
+                    }
+                    &:before {
+                        content: "\2219";
+                        font-weight: bold;
+                        font-size: 1.6em;
+                        line-height: 0.5em;
+                        display: inline-block;
+                        width: 1em;
+                        margin-left: -0.7em;
+                    }
+                    &:hover {
+                        a {
+                            color: @primaryColor;
+                            text-decoration: none;
+                            cursor: pointer;
+                        }
+                        &:before {
+                            color: @primaryColor;
+                        }
+                    }
+                }
+            }
+        }
+
+        /* SMS OTP interface */
+        .sms-otp-portal-layout {
+            .sms-otp-fields {
+                @media screen and (min-width: 500px) {
+                    flex-wrap: nowrap;
+                }
+            }
+        }
+
+        .cookie-policy-message {
+            font-size: 14px;
+        }
+
+        footer {
+            padding: 2rem 0;
+        }
+    }
+}
+
+/*-----------------------------
+        Loader Bar
+------------------------------*/
+.loader-bar{
+    width: calc(100% + 84px);
+    height: 0.2em;
+    background-color: fade(@primaryColor, 50%);
+    margin-top: -42px;
+    margin-left: -42px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    overflow: hidden;
+}
+.loader-bar::before {
+    width: 50%;
+    height: 0.2em;
+    background-color: @primaryColor;
+    content: "";
+    display: block;
+    margin-left: -50%;
+    animation-duration: 1s;
+    animation-name: loader-bar-motion;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes loader-bar-motion {
+    from {
+        margin-left: -50%;
+    }
+    to {
+        margin-left: 100%;
+    }
+}
+
+.loadUIOverrides();
+
+/*-----------------------------
+  Concurrent Session Handling
+------------------------------*/
+
+a.session-refresh {
+    float: right;
+    margin-bottom: 5px;
+}
+
+.active-sessions-table tr {
+    td {
+        font-size: 0.9em;
+    }
+
+    .th-session-checkbox, .td-session-checkbox {
+        text-align: center !important;
+
+        .ui.checkbox {
+            width: 17px !important;
+        }
+    }
+}
+
+.button-group-sessions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 0px;
+}
