@@ -1,5 +1,5 @@
 {
-    "private": true,
+    "private": false,
     "name": "@thiva/admin.email-and-sms.v1",
     "version": "2.19.2",
     "description": "WSO2 Identity Server Console",

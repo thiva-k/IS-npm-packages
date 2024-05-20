@@ -1,5 +1,5 @@
 {
-    "private": true,
+    "private": false,
     "name": "@thiva/admin.claims.v1",
     "version": "2.19.2",
     "description": "WSO2 Identity Server Console",
@@ -80,6 +80,13 @@
     },
     "devDependencies": {
         "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+        "@rollup/plugin-commonjs": "*",
+        "@rollup/plugin-dynamic-import-vars": "*",
+        "@rollup/plugin-image": "^3.0.3",
+        "@rollup/plugin-json": "^6.1.0",
+        "@rollup/plugin-node-resolve": "*",
+        "@rollup/plugin-typescript": "^11.1.6",
+        "@svgr/rollup": "^6.2.1",
         "@svgr/webpack": "4.3.2",
         "@testing-library/dom": "^7.24.3",
         "@testing-library/jest-dom": "^5.11.9",

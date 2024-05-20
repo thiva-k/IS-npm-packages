@@ -1,5 +1,5 @@
 {
-    "private": true,
+    "private": false,
     "name": "@thiva/react-components",
     "version": "2.2.3",
     "description": "A React component library for WSO2 Identity Server frontend apps implementing Semantic UI Framework",
