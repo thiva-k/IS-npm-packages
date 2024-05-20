@@ -2,7 +2,7 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const rootDir = path.resolve(__dirname);
+const rootDir = path.resolve(__dirname,'..');
 
 fs.readdirSync(rootDir, { withFileTypes: true })
   .filter(dirent => dirent.isDirectory())
